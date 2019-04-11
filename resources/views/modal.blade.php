@@ -9,6 +9,8 @@
       </div>
       <div class="modal-body text-center">
           <img src="{{ Avatar::create($row->nama)->toBase64() }}" class="img-fluid"/>
+          <hr>
+          <img src="{{ Storage::url($row->file) }}" class="img-fluid" style="max-width: 300px">
       </div>
     </div>
   </div>

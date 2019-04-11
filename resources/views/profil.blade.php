@@ -10,7 +10,7 @@
             <div class="jumbotron">
                 Profile
             </div>
-            <form action="{{route('profil.store')}}" method="post">
+            <form action="{{route('profil.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
                     <div class="col-auto">
@@ -21,6 +21,11 @@
                     </div>
                     <div class="col-auto">
                         <input type="text" name="alamat" class="form-control" placeholder="Alamat">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-8">
+                            <input type="file" name="file" class="form-control-file">
+                        </div>
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary">Submit</button>

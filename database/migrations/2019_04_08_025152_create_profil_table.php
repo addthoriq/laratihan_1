@@ -18,6 +18,7 @@ class CreateProfilTable extends Migration
             $table->string('depan');
             $table->string('belakang');
             $table->string('alamat');
+            $table->string('file');
             $table->string('avatar')->nullable();
             $table->timestamps();
         });

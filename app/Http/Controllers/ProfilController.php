@@ -36,7 +36,30 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        Profil::create($request->all());
+        // Validasi
+        $this->validate($request, [
+            'file'  => 'reuired|image|size:2000'
+        ]);
+
+        // Profil::create($request->all());
+        $file           = $request->file('file');
+        $path           = $file->store('public/gambar');
+        $profil         = new Profil;
+        $profil->depan  = $request->depan;
+        $profil->belakang  = $request->belakang;
+        $profil->alamat  = $request->alamat;
+        $profil->file  = $path;
+        //php artisan storage:link
+
+        //Mengambil Nama asli file
+        $request->file('file')->getClientOriginalName();
+        //Format File
+        $request->file('file')->getClientOriginalExtension();
+        //Ukuran File
+        $request->file('file')->getClientSize();
+
+        $profil->save();
+
         return redirect('/profil');
     }
 
